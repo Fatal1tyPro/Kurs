@@ -1,0 +1,7 @@
+D:\git\Laba5.2\Laba5.2\bin\Debug\Laba5.2.exe.config
+D:\git\Laba5.2\Laba5.2\bin\Debug\Laba5.2.exe
+D:\git\Laba5.2\Laba5.2\bin\Debug\Laba5.2.pdb
+D:\git\Laba5.2\Laba5.2\obj\Debug\Laba5.2.csproj.AssemblyReference.cache
+D:\git\Laba5.2\Laba5.2\obj\Debug\Laba5.2.csproj.CoreCompileInputs.cache
+D:\git\Laba5.2\Laba5.2\obj\Debug\Laba5.2.exe
+D:\git\Laba5.2\Laba5.2\obj\Debug\Laba5.2.pdb
