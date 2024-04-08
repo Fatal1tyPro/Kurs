@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ConsoleApp1
 {
-    internal class laba8
-    {
-
-// Задание 1: Класс Item
-public class Item
+    public class Item
     {
         private string Name { get; set; } = "unknown";
 
@@ -25,7 +22,6 @@ public class Item
         }
     }
 
-    // Задание 2: Классы Engine и Transport
     public class Engine
     {
         public void Start()
@@ -69,10 +65,10 @@ public class Item
         }
     }
 
-    // Задание 3: Метод расширения для массива int
+    // Метод расширения для массива int
     public static class ArrayExtensions
     {
-        public static int Max(this int[] array)
+        public static int MaxValue(this int[] array)
         {
             int max = int.MinValue;
             foreach (int num in array)
@@ -84,7 +80,6 @@ public class Item
         }
     }
 
-    // Задание 4: Класс Bag
     public class Bag
     {
         private Item[] items = new Item[8];
@@ -137,11 +132,10 @@ public class Item
         }
     }
 
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            // Пример использования созданных классов и методов
             Item item1 = new Item();
             item1.SetName("Book");
 
@@ -158,7 +152,7 @@ public class Item
             plane.Move();
 
             int[] numbers = { 1, 8, 3, 7, 2 };
-            int maxNumber = numbers.Max();
+            int maxNumber = numbers.MaxValue(); // вызываем метод расширения MaxValue
             Console.WriteLine($"Max number in the array: {maxNumber}");
 
             Bag bag = new Bag();
@@ -166,8 +160,8 @@ public class Item
             bag.AddItem(item1);
             bag.AddItem(item2);
             bag.RemoveItem(0);
+
+            Console.ReadLine(); // Чтобы консольное окно не закрывалось сразу
         }
     }
-
-}
 }
