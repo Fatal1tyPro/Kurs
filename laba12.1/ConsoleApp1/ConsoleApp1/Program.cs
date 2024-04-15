@@ -1,60 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApp1
+public abstract class Animal
 {
-    internal class Program
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public int NumOffspring { get; set; }
+
+    public abstract void DisplayAnimal();
+}
+
+public class Carnivore : Animal
+{
+    public override void DisplayAnimal()
     {
-        static void Main(string[] args)
-        {
-        }
-            public interface IAnimal
-        {
-            string Name { get; set; }
-        }
-
-        public interface ICarnivore : IAnimal { }
-
-        public interface IHerbivore : IAnimal { }
-
-        public class Elephant : IHerbivore, IEquatable<Elephant>
-        {
-            public string Name { get; set; }
-            public int Size { get; set; }
-
-            public bool Equals(Elephant other)
-            {
-                if (other == null) return false;
-                return this.Size == other.Size;
-            }
-        }
-
-        public class Zoo
-        {
-            private List<ICarnivore> Carnivores = new List<ICarnivore>();
-            private List<IHerbivore> Herbivores = new List<IHerbivore>();
-
-            public void AddAnimal(IAnimal animal)
-            {
-                switch (animal)
-                {
-                    case ICarnivore carnivore:
-                        Carnivores.Add(carnivore);
-                        break;
-
-                    case IHerbivore herbivore:
-                        Herbivores.Add(herbivore);
-                        break;
-
-                    default:
-                        throw new Exception("Unknown animal type");
-                }
-            }
-        }
-
+        Console.WriteLine($"Carnivore: {Name}, Age: {Age}, Offspring: {NumOffspring}");
     }
 }
 
+public class Herbivore : Animal
+{
+    public override void DisplayAnimal()
+    {
+        Console.WriteLine($"Herbivore: {Name}, Age: {Age}, Offspring: {NumOffspring}");
+    }
+}
+
+public class Cat : Carnivore
+{
+    public string Sound { get; set; }
+    public string Color { get; set; }
+}
+
+public class Bear : Carnivore
+{
+    public string Sound { get; set; }
+    public string Color { get; set; }
+}
+
+public class Elephant : Herbivore, IEquatable<Elephant>
+{
+    public string Sound { get; set; }
+    public string Color { get; set; }
+    public int Size { get; set; }
+
+    public bool Equals(Elephant other)
+    {
+        return this.Size == other.Size;
+    }
+}
+
+public class Zoo
+{
+    private List<Carnivore> carnivores = new List<Carnivore>();
+    private List<Herbivore> herbivores = new List<Herbivore>();
+
+    public void AddAnimal(Animal animal)
+    {
+        if (animal is Carnivore carnivore)
+        {
+            carnivores.Add(carnivore);
+        }
+        else if (animal is Herbivore herbivore)
+        {
+            herbivores.Add(herbivore);
+        }
+    }
+}
